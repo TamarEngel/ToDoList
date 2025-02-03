@@ -28,12 +28,13 @@ var app = builder.Build();
 app.UseCors();
 
 // Enable Swagger UI
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();  
-}
+//}
 
+app.MapGet("/", () => "TodooApi is running!!!");
 //Get
 app.MapGet("/items", async (ToDoDbContext db)=>{
     var items = await db.Items.ToListAsync();
