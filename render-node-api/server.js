@@ -3,9 +3,11 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+//const PORT = 3000;
+const PORT = process.env.PORT || 3000; // שימוש בפורט מהסביבה אם קיים
 
-app.get('/render-apps', async (req, res) => {
+
+app.get('/', async (req, res) => {
   try {
     // קבלת ה-API Key מהסביבה
     const apiKey = process.env.RENDER_API_KEY;
